@@ -6,14 +6,46 @@
     <title></title>
 </head>
 <body>
-<div class="fixed-mate-left"></div>
-<div class="fixed-mate-left" style="top: 150px"></div>
-<div class="fixed-mate-right" style="top: 300px"></div>
+<div class="fixed-mate-left"><div class="welcome">I'm a left floated div</div></div>
+<div class="fixed-mate-right" style="top: 150px"><div class="welcome">I'm a right floated div</div></div>
 
-    <!--<h1>fixedMate</h1> is a sass based code, spiced with javascript. It was made for people who (like I before)-->
-    <!--have problems with fixed roll-up divs. They are everywhere: social plugins, email subscriptions or ads. My-->
-    <!--idea was to make it as simple as it can be, so all user has to do is add an id="fixedMate" to his div.<br>-->
-<!--</div>-->
+<div>
+<h1>fixedMate</h1>
+    <div class="desc">
+        <p>
+            is a sass based code, spiced with javascript. It was made for people who (like I before) have problems with fixed slider divs.
+            They are everywhere: social plugins, email subscriptions or ads. My
+            idea was to make it as simple as it can be, so all a user has to do is add a class to his div.
+        </p>
+        <p>
+            <strong>What class should I add?</strong>
+        </p>
+        <p>
+            use: <br><br><code>class="fixed-mate-left"</code><br> to create a left floated fixedMate
+            and use: <br><br><code>class="fixed-mate-right"</code><br> if you want to create a right floated fixedMate
+        </p>
+        <p>
+            that is all... if you want a 300 x 300 px fixedMate, if not fear not. There's an easy way to change it.
+        </p>
+        <p>
+            <strong>I want to make it bigger and wider</strong>
+        </p>
+        <p>
+            You don't need to know sass to change width and height. Go to style/main.scss and change:
+        </p>
+        <p>
+            <code>
+                $mate-height: 300px; // your fixedMate height
+            </code>
+            <code>
+                $mate-width: 300px; // your fixedMate width
+            </code>
+        </p>
+        <p>
+            <strong>Now give them a try.</strong>
+        </p>
+    </div>
+</div>
 
 
 <script src="script/main.js"></script>
@@ -21,13 +53,47 @@
 
 <style>
     body{
-        background: #9bff86; margin: 0; padding: 0;
+        background: #fff; margin: 0; padding: 0;
     }
     h1{
-        color: #777;
+        color: #076046;
+        font: 5em Helvetica;
+        text-align: center;
     }
-    .des{
-        font: 2em Helvetica; color: #666; padding: 1em; text-align: justify; float: right; width:70%
+
+    strong{
+        line-height: 3em;
+        color: #076046;
+    }
+
+    code{
+        display: block;
+        line-height: 2em;
+        margin: 1.5em;
+        color: #999;
+    }
+    .welcome{
+        font: 3em Helvetica;
+        color: #076046;
+        text-align: center;
+    }
+    .desc{
+        font: 1.7em Helvetica;
+        line-height: 1.3em;
+        color: #666;
+        text-align: justify;
+        position: absolute;
+        right: 8em;
+        left: 8em;
+    }
+    .fixed-mate-left{
+        background: rgba(248, 173, 162, 0.70);
+    }
+    .fixed-mate-right{
+        background: rgba(179, 193, 245, 0.7);
+    }
+    .fixed-mate-wrapper{
+        padding-top: 33%;
     }
 </style>
 </html>

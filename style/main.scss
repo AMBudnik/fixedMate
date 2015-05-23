@@ -1,4 +1,4 @@
-$mate-height: 200px; // your fixedMate height
+$mate-height: 300px; // your fixedMate height
 $mate-width: 300px; // your fixedMate width
 $mate-width-fillHandle: $mate-width - 10px;
 $fillHandleIcon: 20px;
@@ -8,66 +8,67 @@ $bg-mate: rgba(255, 255, 255, 0.88); // background/opacity color of your fixedMa
 $fillHandle-color: #666; // fillhandle color of your fixedMate
 $fillHandle-color-base: #000; // fillhandle base color of your fixedMate
 
-
-.fixed-mate-left, .fixed-mate-left::after {
+.fixed-mate-left, .fixed-mate-left::after, .fixed-mate-right, .fixed-mate-right::after {
     -webkit-transition: width 1s;
     background: $bg-mate;
-    border-radius: 0 7px 7px 0;
     box-shadow: inset 0 0 6px 0 darken($bg-mate, 20%);
     box-sizing: border-box;
     height: $mate-height;
     position: fixed;
     transition: width 1s;
     width: 20px;
+    top: 0%;
+    overflow: hidden;
+    z-index: 999;
+    .fixed-mate-wrapper {
+        width: $mate-width;
+    }
 }
-.fixed-mate-left::after {
-    position: absolute;
-    right: 0;
-    content: " ";
-    display: block;
-    background-image: url('../img/next.png'), linear-gradient($fillHandle-color-base, darken($fillHandle-color, 15%), $fillHandle-color, darken($fillHandle-color, 15%), $fillHandle-color-base);
-    background-position: 0 50%;
-    background-repeat: no-repeat;
+.fixed-mate-left, .fixed-mate-left::after{
+    border-radius: 0 7px 7px 0;
 }
-
-.extended {
-    width: $mate-width;
+.fixed-mate-left{
+    .fixed-mate-wrapper{
+        padding-right: $fillHandleIcon;
+    }
 }
-.extended.fixed-mate-left::after {
-    background-image: url('../img/next-back.png'), linear-gradient($fillHandle-color-base, darken($fillHandle-color, 15%), $fillHandle-color, darken($fillHandle-color, 15%), $fillHandle-color-base);
+.fixed-mate-right{
+    border-radius: 7px 0 0 7px;
+    .fixed-mate-wrapper{
+        padding-left: $fillHandleIcon;
+    }
 }
-
-// //
 
 .fixed-mate-right, .fixed-mate-right::after {
-    -webkit-transition: width 1s;
-    background: $bg-mate;
-    border-radius: 0 7px 7px 0;
-    box-shadow: inset 0 0 6px 0 darken($bg-mate, 20%);
-    box-sizing: border-box;
-    height: $mate-height;
-    position: fixed;
     right: 0;
-    transition: width 1s;
-    width: 20px;
+
 }
-.fixed-mate-right::after {
+.fixed-mate-left::after, .fixed-mate-right::after {
     position: absolute;
-    left: 0;
+    right: 0;
     content: " ";
     display: block;
     background-image: url('../img/next.png'), linear-gradient($fillHandle-color-base, darken($fillHandle-color, 15%), $fillHandle-color, darken($fillHandle-color, 15%), $fillHandle-color-base);
     background-position: 0 50%;
     background-repeat: no-repeat;
-    -ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-    transform: rotate(180deg);
+}
+.fixed-mate-left::after{
+    right: 0;
+}
+.fixed-mate-right::after{
+    left: 0;
+    border-radius: 0 7px 7px 0;
+    transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg)
 }
 
 .extended {
     width: $mate-width;
 }
-
-.extended.fixed-mate-right::after {
+.extended.fixed-mate-left::after, .extended.fixed-mate-right::after {
     background-image: url('../img/next-back.png'), linear-gradient($fillHandle-color-base, darken($fillHandle-color, 15%), $fillHandle-color, darken($fillHandle-color, 15%), $fillHandle-color-base);
 }
+
+
